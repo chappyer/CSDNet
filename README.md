@@ -2,6 +2,8 @@
 
 CSDNet: Image Inpainting with Contextual and Spatial Coherence for Sequential Traffic Scenarios
 
+https://github.com/chappyer/CSDNet/assets/83496119/2b07fddd-2059-483f-8a23-41829eb913a4
+
 ## Prerequisites
 
 - Linux or Windows
