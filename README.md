@@ -94,8 +94,50 @@ There are many hyperparameters in the dictionary that can be customized to facil
 
     - `train.py`, `test.py` The entry files for model training and testing.
 
+## Training/Matching Time
+
+The specific training and matching time of the model under the specified dataset is given below for **reference only**.
+
+- **Dataset Information**
+
+  - The image size for both training and matching is 1120*320.
+  - Training Dataset size is 3594.
+  - Matching Dataset size is 1065.
+
+- **Hardware Information**
+
+  - For training part, we training on the 4 Nvidia Tesla V100s 32G GPU.
+  - For matching part，we matching on the Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz.
+    - Matching with GPU can greatly decreasing matching time, but requires a graphics card with larger memory (larger than 32G).
+    - *This data is matching with GPU (One Nvidia Tesla V100s 32G GPU)*. [*]
+
+- **A reference table for training and matching time is given below**
+
+  **Table One** Training/ Matching Time With Different Patch Size 
+
+  - Training/Matching Configuration: 1. Use semantic 2. Use coarse match 3. Trainging/Matching image size is 1120*320 4. Training/Matching on One View
+
+| Patch Size | Matching Time (Sec/One Image) | Training Time (Min/One Epoch) |
+| ---------- | ----------------------------- | ----------------------------- |
+| 3x3        | 33.10                         | 29.57                         |
+| 7x7        | 31.76                         | 17.26 (0.61sec on GPU*)       |
+| 11x11      | 30.18                         | 15.02                         |
+
+[\*] *This data is matching with GPU (One Nvidia Tesla V100s 32G GPU)*
+
+​	**Table Two** Training/ Matching Time With Different View 
+
+- Training/Matching Configuration: 1. Use semantic 2. Use coarse match 3. Trainging/Matching image size is 1120*320 4. All Patch Size is 7\*7
 
 
+| Views | Matching Time (Sec/One Image) | Training Time (Min/One Epoch) |
+| ----- | ----------------------------- | ----------------------------- |
+| 4     | 35.55                         | 69.89                         |
+| 3     | 33.55                         | 57.65                         |
+| 2     | 32.19                         | 38.75                         |
+| 1     | 31.76                         | 17.26 (0.61sec on GPU*)       |
+
+[\*] *This data is matching with GPU (One Nvidia Tesla V100s 32G GPU)*
 
 
 
